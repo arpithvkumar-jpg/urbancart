@@ -25,19 +25,22 @@ const Login = ({setToken}) => {
     }
 
   return (
-    <div className='min-h-screen flex items-center justify-center w-full'>
-        <div className='bg-white shadow-md rounded-lg px-8 py-6 max-w-md'>
-            <h1 className='text-2xl font-bold mb-4'>Admin Panel</h1>
-            <form onSubmit={onSubmitHandler}>
-                <div className='mb-3 min-w-72'>
-                    <p className='text-sm font-medium text-gray-700 mb-2'>Email Address</p>
-                    <input onChange={(e)=>setEmail(e.target.value)} value={email} className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none' type="email" placeholder='your@email.com' required />
+    <div className='min-h-screen flex items-center justify-center w-full bg-slate-50 p-6'>
+        <div className='bg-white shadow-xl shadow-blue-900/5 rounded-2xl p-8 sm:p-10 max-w-md w-full border border-slate-100'>
+            <div className='text-center mb-8'>
+              <h1 className='text-3xl font-bold text-slate-900'>Seller Hub</h1>
+              <p className='text-slate-500 mt-2 text-sm'>Sign in to your admin dashboard</p>
+            </div>
+            <form onSubmit={onSubmitHandler} className='space-y-6'>
+                <div>
+                    <label className='block text-sm font-medium text-slate-700 mb-2'>Email Address</label>
+                    <input onChange={(e)=>setEmail(e.target.value)} value={email} className='w-full rounded-lg border border-slate-300 px-4 py-3 text-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500' type="email" placeholder='admin@example.com' required />
                 </div>
-                <div className='mb-3 min-w-72'>
-                    <p className='text-sm font-medium text-gray-700 mb-2'>Password</p>
-                    <input onChange={(e)=>setPassword(e.target.value)} value={password} className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none' type="password" placeholder='Enter your password' required />
+                <div>
+                    <label className='block text-sm font-medium text-slate-700 mb-2'>Password</label>
+                    <input onChange={(e)=>setPassword(e.target.value)} value={password} className='w-full rounded-lg border border-slate-300 px-4 py-3 text-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500' type="password" placeholder='••••••••' required />
                 </div>
-                <button className='mt-2 w-full py-2 px-4 rounded-md text-white bg-black' type="submit"> Login </button>
+                <button className='w-full rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' type="submit"> Secure Login </button>
             </form>
         </div>
     </div>

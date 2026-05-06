@@ -14,10 +14,20 @@ const ShopContextProvider = (props) => {
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const [cartItems, setCartItems] = useState({});
+    const [likedItems, setLikedItems] = useState([]);
     const [products, setProducts] = useState([]);
     const [token, setToken] = useState(() => localStorage.getItem('token') || '')
     const navigate = useNavigate();
 
+    const toggleLike = (itemId) => {
+        setLikedItems((prev) => {
+            if (prev.includes(itemId)) {
+                return prev.filter((id) => id !== itemId);
+            } else {
+                return [...prev, itemId];
+            }
+        });
+    }
 
     const addToCart = async (itemId, size) => {
 
@@ -152,6 +162,7 @@ const ShopContextProvider = (props) => {
         products, currency, delivery_fee,
         search, setSearch, showSearch, setShowSearch,
         cartItems, addToCart,setCartItems,
+        likedItems, toggleLike,
         getCartCount, updateQuantity,
         getCartAmount, navigate, backendUrl,
         setToken, token

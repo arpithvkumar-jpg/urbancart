@@ -140,4 +140,36 @@ const googleLogin = async (req, res) => {
     }
 }
 
-export { loginUser, registerUser, adminLogin, googleLogin }
+const getUserProfile = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.body.userId).select('-password')
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+        res.json({ success: true, user })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+const updateUserAddress = async (req, res) => {
+    try {
+        const { address } = req.body
+        const user = await userModel.findByIdAndUpdate(
+            req.body.userId,
+            { address },
+            { new: true }
+        ).select('-password')
+        
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+        res.json({ success: true, user, message: 'Address updated successfully' })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+export { loginUser, registerUser, adminLogin, googleLogin, getUserProfile, updateUserAddress }

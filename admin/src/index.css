@@ -7,13 +7,21 @@
     font-family: Outfit;
 }
 
-select,input,textarea{
-    border: 1px solid #c2c2c2;
-    outline-color: #C586A5;
-    border-radius: 4px;
+/* Custom Scrollbar for a modern look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.active{
-    background-color: #ffebf5;
-    border-color: #C586A5;
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
