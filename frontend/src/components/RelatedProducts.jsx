@@ -28,9 +28,11 @@ const RelatedProducts = ({category,subCategory}) => {
         <Title text1={'RELATED'} text2={"PRODUCTS"} />
       </div>
 
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
+      <div className='flex overflow-x-auto gap-4 hide-scrollbar snap-x snap-mandatory sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 pb-4'>
         {related.map((item,index)=>(
-            <ProductItem key={index} id={item._id} name={item.name} price={item.price} image={item.image}/>
+            <div key={index} className='w-[160px] sm:w-auto shrink-0 snap-start'>
+                <ProductItem id={item._id} name={item.name} price={item.price} image={item.image}/>
+            </div>
         ))}
       </div>
     </div>

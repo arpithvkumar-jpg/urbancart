@@ -91,9 +91,11 @@ const Product = () => {
                 ))}
               </div>
           </div>
-          <button onClick={handleCartButton} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>
-            {addedToCart ? 'GO TO CART' : 'ADD TO CART'}
-          </button>
+          <div className='fixed bottom-[64px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.1)] md:relative md:bottom-auto md:bg-transparent md:border-none md:p-0 md:shadow-none md:z-0'>
+            <button onClick={handleCartButton} className='w-full bg-slate-900 text-white px-8 py-3.5 text-sm font-semibold rounded-xl active:bg-slate-800 transition md:w-auto'>
+              {addedToCart ? 'GO TO CART' : 'ADD TO CART'}
+            </button>
+          </div>
           <hr className='mt-8 sm:w-4/5' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
               <p>100% Original product.</p>

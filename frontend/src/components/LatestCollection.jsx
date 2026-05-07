@@ -18,9 +18,11 @@ const LatestCollection = () => {
           <Title text1={'LATEST'} text2={'COLLECTIONS'} />
           <p className='mx-auto max-w-2xl text-sm text-slate-600 sm:mx-0 sm:text-base'>Fresh seasonal picks from top brands, curated for style and comfort.</p>
         </div>
-        <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+        <div className='flex overflow-x-auto gap-4 hide-scrollbar snap-x snap-mandatory sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 pb-4'>
           {latestProducts.map((item, index) => (
-            <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
+            <div key={index} className='w-[160px] sm:w-auto shrink-0 snap-start'>
+              <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
+            </div>
           ))}
         </div>
       </div>

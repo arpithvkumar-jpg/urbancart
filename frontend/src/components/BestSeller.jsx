@@ -19,9 +19,11 @@ const BestSeller = () => {
           <Title text1={'BEST'} text2={'SELLERS'} />
           <p className='mx-auto max-w-2xl text-sm text-slate-600 sm:mx-0 sm:text-base'>Discover top-rated products with the most orders and the highest customer ratings.</p>
         </div>
-        <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+        <div className='flex overflow-x-auto gap-4 hide-scrollbar snap-x snap-mandatory sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 pb-4'>
           {bestSeller.map((item, index) => (
-            <ProductItem key={index} id={item._id} name={item.name} image={item.image} price={item.price} />
+            <div key={index} className='w-[160px] sm:w-auto shrink-0 snap-start'>
+              <ProductItem id={item._id} name={item.name} image={item.image} price={item.price} />
+            </div>
           ))}
         </div>
       </div>
